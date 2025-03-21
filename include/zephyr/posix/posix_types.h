@@ -84,12 +84,7 @@ typedef unsigned long useconds_t;
 #endif
 
 /* time related attributes */
-#if !defined(CONFIG_NEWLIB_LIBC) && !defined(CONFIG_ARCMWDT_LIBC)
-#ifndef __clockid_t_defined
-typedef uint32_t clockid_t;
-#endif
-#endif /* !CONFIG_NEWLIB_LIBC && !CONFIG_ARCMWDT_LIBC */
-#ifndef __timer_t_defined
+#if !defined(__timer_t_defined) && !defined(_TIMER_T_DECLARED)
 typedef unsigned long timer_t;
 #endif
 
@@ -160,4 +155,4 @@ BUILD_ASSERT(sizeof(pthread_once_t) >= sizeof(struct pthread_once));
 }
 #endif
 
-#endif	/* ZEPHYR_INCLUDE_POSIX_TYPES_H_ */
+#endif /* ZEPHYR_INCLUDE_POSIX_TYPES_H_ */
